@@ -16,25 +16,25 @@ public AssuranceController(AssuranceService assuranceService) {
         this.assuranceService = assuranceService;
     }
     @GetMapping
-    public List<Assurance> getAllAuthors() {
+    public List<Assurance> getAllAssurance() {
         return assuranceService.getAllAssurance();
     }
     @GetMapping("/{id}")
-    public Optional<Assurance> getAuthorById(@PathVariable Long id) {
+    public Optional<Assurance> getAssuranceById(@PathVariable Long id) {
         return assuranceService.getAssuranceById(id);
     }
     @PostMapping
-    public Assurance createAuthor(@RequestBody Assurance assurance) {
+    public Assurance createAssurance(@RequestBody Assurance assurance) {
         return assuranceService.createAssurance(assurance);
     }
 
     @PutMapping("/{id}")
-    public Assurance updateAuthor(@PathVariable Long id, @RequestBody Assurance updatedAssurance) {
+    public Assurance updateAssurance(@PathVariable Long id, @RequestBody Assurance updatedAssurance) {
         return assuranceService.updateAssurance(id, updatedAssurance);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAuthor(@PathVariable Long id) {
+    public void deleteAssurance(@PathVariable Long id) {
         assuranceService.deleteAssurance(id);
     }
 }

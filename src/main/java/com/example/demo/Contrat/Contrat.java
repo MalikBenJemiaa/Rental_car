@@ -1,6 +1,7 @@
 package com.example.demo.Contrat;
 
 import com.example.demo.Facture.Facture;
+import com.example.demo.Location.Location;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -24,16 +25,28 @@ public class Contrat {
     private Date end_date;
     @OneToOne
     private Facture facture;
+    @OneToOne
+    private Location location;
+
     public Contrat(){
 
     }
 
-    public Contrat(long id, String contratPdf,Facture facture, Date start_date, Date end_date) {
+    public Contrat(long id,Location location, String contratPdf,Facture facture, Date start_date, Date end_date) {
         this.id = id;
         this.contratPdf = contratPdf;
         this.start_date = start_date;
         this.end_date = end_date;
         this.facture=facture;
+        this.location=location;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public void setFacture(Facture facture) {

@@ -8,7 +8,8 @@ import jakarta.persistence.*;
 @Table
 public class Cars {
     @Id
-    @SequenceGenerator(
+
+    /*@SequenceGenerator(
             name = "cars_sequence",
             sequenceName = "cars_sequence",
             allocationSize = 1
@@ -16,7 +17,7 @@ public class Cars {
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "cars_sequence"
-    )
+    )*/
     private Long mat;
     private String model;
     private Integer stock;

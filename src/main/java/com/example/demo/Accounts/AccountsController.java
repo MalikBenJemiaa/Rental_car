@@ -16,28 +16,28 @@ public class AccountsController {
         this.accountsService = accountsService;
     }
     /////////////////////
-    @GetMapping
+    @GetMapping("/GetAllAccounts")
     public List<Accounts> getAllAccount() {
         return accountsService.getAllAccount();
     }
-    @GetMapping("/{id}")
+    @GetMapping("/GetOneAccount/{id}")
     public Optional<Accounts> getAccountById(@PathVariable Long id) {
         return accountsService.getAccountById(id);
     }
 
-    @PostMapping
+    @PostMapping("/CreateAccount")
     public Accounts createAccount(@RequestBody Accounts account) {
 
         System.out.println("update client is made succefully");
         return accountsService.createAccount(account);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/UpdateAccount/{id}")
     public Accounts updateAccount(@PathVariable Long id, @RequestBody Accounts updatedContrat) {
         return accountsService.updateAccount(id, updatedContrat);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("DeleteAccount/{id}")
     public void deleteAccount(@PathVariable Long id) {
         accountsService.deleteAccount(id);
     }

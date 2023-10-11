@@ -17,28 +17,28 @@ private final ClientService clientService;
     }
 
     /////////////////////////////////////////////////////:
-    @GetMapping
+    @GetMapping("/GetAllClient")
     public List<Client> getAllClient() {
         return clientService.getAllClient();
     }
-    @GetMapping("/{id}")
+    @GetMapping("/getOneClient/{id}")
     public Optional<Client> getClientById(@PathVariable String id) {
         return clientService.getClientById(id);
     }
 
-    @PostMapping
+    @PostMapping("/CreateClient")
     public Client createClient(@RequestBody Client client) {
 
         System.out.println("update client is made succefully");
         return clientService.createClient(client);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/UpdateClient/{id}")
     public Client updateClient(@PathVariable String id, @RequestBody Client updatedClient) {
         return clientService.updateClient(id, updatedClient);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/DeleteClient/{id}")
     public void deleteClient(@PathVariable String id) {
         clientService.deleteClient(id);
     }

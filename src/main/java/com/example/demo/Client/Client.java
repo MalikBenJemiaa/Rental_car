@@ -13,7 +13,7 @@ public class Client {
 
     private String address;
     private String contact;
-    private Integer FidalityPoint;
+    private Integer fidalityPoint;
     public Client() {}
 
     public Client(String numPermis, String cin, String username, String address, String contact, Integer fidalityPoint) {
@@ -22,7 +22,7 @@ public class Client {
         this.username = username;
         this.address = address;
         this.contact = contact;
-        FidalityPoint = fidalityPoint;
+        this.fidalityPoint = fidalityPoint;
     }
 
     public String getNumPermis() {
@@ -66,10 +66,10 @@ public class Client {
     }
 
     public Integer getFidalityPoint() {
-        return FidalityPoint;
+        return fidalityPoint;
     }
 
     public void setFidalityPoint(Integer fidalityPoint) {
-        FidalityPoint = fidalityPoint;
+        fidalityPoint = fidalityPoint;
     }
 }

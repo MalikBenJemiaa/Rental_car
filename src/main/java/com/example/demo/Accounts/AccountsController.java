@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping
+@RequestMapping("/account")
 public class AccountsController {
     private final AccountsService accountsService;
 @Autowired

@@ -8,7 +8,7 @@ import java.util.Date;
 @Table
 public class Assurance {
 @Id
-@SequenceGenerator(
+/*@SequenceGenerator(
         name="Assurance_sequence",
         sequenceName = "Assurance_sequence",
         allocationSize = 1
@@ -16,7 +16,7 @@ public class Assurance {
 @GeneratedValue(
         strategy = GenerationType.SEQUENCE,
         generator = "Assurance_sequence"
-)
+)*/
     private long num_assurace;
     private Date end_assurance;
     public Assurance(){

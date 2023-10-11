@@ -26,7 +26,7 @@ public class AccountsService {
         return accountsRepo.save(account);
     }
 
-    public Accounts updateContrat(Long id, Accounts updatedAccount) {
+    public Accounts updateAccount(Long id, Accounts updatedAccount) {
         Optional<Accounts> existingAccount = accountsRepo.findById(id);
         if (existingAccount.isPresent()) {
             Accounts accountToUpdate = existingAccount.get();

@@ -22,10 +22,11 @@ public class Location {
     private long id;
     private Date date_prevu;
 
-    @OneToOne
+    @ManyToOne
     private Client client;
 
-    @OneToOne
+    @ManyToOne
+
     private Cars car;
     public Location() {
     }

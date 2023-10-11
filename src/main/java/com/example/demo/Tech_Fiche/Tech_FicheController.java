@@ -17,7 +17,7 @@ public class Tech_FicheController {
     public Tech_FicheController(Tech_FicheService techFicheService){
         this.techFicheService=techFicheService;
     }
-    @GetMapping("/ ")
+    @GetMapping("/getAllTechFiche")
     public List<Tech_Fiche> getallficheTech(){
         System.out.println("slslsmmmmm");
         return this.techFicheService.getAllTechFiche();

@@ -22,6 +22,7 @@ public class Facture {
     private Integer price;
     public Facture() {
     }
+
     public Facture(long id, Date CreationDate, Integer price) {
         this.id = id;
        this.CreationDate=CreationDate;

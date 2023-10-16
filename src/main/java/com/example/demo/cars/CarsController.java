@@ -38,15 +38,7 @@ public class CarsController {
     public Cars updateCars(@PathVariable Long id, @RequestBody Cars updatedCars) {
         return carsService.updateCars(id, updatedCars);
     }
-    @PostMapping("/insertCarFromJson")
-    public ResponseEntity<String> insertCar(@RequestBody String jsonData) {
-        Cars insertedCar = carsService.insertCarFromJson(jsonData);
-        if (insertedCar != null) {
-            return new ResponseEntity<>("Car inserted with ID: " + insertedCar.getMat(), HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>("Failed to insert car data.", HttpStatus.BAD_REQUEST);
-        }
-    }
+
 
     @DeleteMapping("/deleteCars/{id}")
     public void deleteCars(@PathVariable Long id) {

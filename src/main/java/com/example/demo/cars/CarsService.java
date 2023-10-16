@@ -48,15 +48,5 @@ public class CarsService {
     public void deleteCars(Long id) {
         carsRepo.deleteById(id);
     }
-    public Cars insertCarFromJson(String jsonData) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            Cars car = objectMapper.readValue(jsonData, Cars.class);
-            return carsRepo.save(car);
-        } catch (JsonProcessingException e) {
-            // Handle the exception
-            e.printStackTrace();
-            return null;
-        }
-    }
+   
 }

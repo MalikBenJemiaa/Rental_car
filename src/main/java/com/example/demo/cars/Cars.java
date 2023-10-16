@@ -5,7 +5,7 @@ import com.example.demo.Tech_Fiche.Tech_Fiche;
 import jakarta.persistence.*;
 
 import java.util.List;
-
+import javax.persistence.Lob;
 @Entity
 @Table
 public class Cars {
@@ -26,19 +26,20 @@ public class Cars {
     private Integer price_per_day;
     private String color;
     @ElementCollection
-    private List<String> Photos;
+    @Lob
+    private List<byte[]> Photos;
     @OneToOne
     @JoinColumn(name = "num_assurance")
     private Assurance num_assurance;
     @ManyToOne
     private Tech_Fiche tech_fiche;
 
-    public List<String> getPhotos() {
-        return Photos;
+    public List<byte[]> getPhotos() {
+        return this.Photos;
     }
 
-    public void setPhotos(List<String> photos) {
-        Photos = photos;
+    public void setPhotos(List<byte[]> photos) {
+        this.Photos = photos;
     }
 
     /* @OneToMany
@@ -60,7 +61,7 @@ public class Cars {
 
     }
 
-    public Cars(Long mat, String model, Integer stock, Integer price_per_day, String color, List<String> photos, Assurance num_assurance, Tech_Fiche tech_fiche) {
+    public Cars(Long mat, String model, Integer stock, Integer price_per_day, String color, List<byte[]> photos, Assurance num_assurance, Tech_Fiche tech_fiche) {
         this.mat = mat;
         this.model = model;
         this.stock = stock;

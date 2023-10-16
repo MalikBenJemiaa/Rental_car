@@ -41,8 +41,8 @@ public class QueryCarService {
         car.setMat(carr.getMat());
         car.setModel(carr.getModel());
         car.setStock(carr.getStock());
-        car.setPrice_per_day(car.getPrice_per_day());
-        car.setColor(car.getColor());
+        car.setPrice_per_day(carr.getPrice_per_day());
+        car.setColor(carr.getColor());
         car.setNum_assurance(assurance);
         car.setTech_fiche(techFicheee);
         car.setPhotos(carr.getPhotos());

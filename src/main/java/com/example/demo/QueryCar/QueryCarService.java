@@ -7,6 +7,7 @@ import com.example.demo.Tech_Fiche.Tech_FicheRepo;
 import com.example.demo.cars.Cars;
 import com.example.demo.cars.CarsRepo;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class QueryCarService {
 
 
     }
-
+    //@Transactional
     public Cars insertAllCridests(Cars carr){
         Assurance assurance = new Assurance(carr.getNum_assurance());
         assuranceRepository.save(assurance);
@@ -41,8 +42,8 @@ public class QueryCarService {
         car.setMat(carr.getMat());
         car.setModel(carr.getModel());
         car.setStock(carr.getStock());
-        car.setPrice_per_day(car.getPrice_per_day());
-        car.setColor(car.getColor());
+        car.setPrice_per_day(carr.getPrice_per_day());
+        car.setColor(carr.getColor());
         car.setNum_assurance(assurance);
         car.setTech_fiche(techFicheee);
         car.setPhotos(carr.getPhotos());

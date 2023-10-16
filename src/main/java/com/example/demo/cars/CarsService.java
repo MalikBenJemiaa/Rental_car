@@ -2,6 +2,8 @@ package com.example.demo.cars;
 
 import com.example.demo.Assurance.Assurance;
 import com.example.demo.Assurance.AssuranceRepo;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,7 @@ public class CarsService {
             carsToUpdate.setColor(updatedCars.getColor());
             carsToUpdate.setModel(updatedCars.getModel());
             carsToUpdate.setStock(updatedCars.getStock());
+            carsToUpdate.setPhotos(updatedCars.getPhotos());
             carsToUpdate.setPrice_per_day(updatedCars.getPrice_per_day());
             // You can update other properties as needed
             return carsRepo.save(carsToUpdate);
@@ -44,5 +47,16 @@ public class CarsService {
     }
     public void deleteCars(Long id) {
         carsRepo.deleteById(id);
+    }
+    public Cars insertCarFromJson(String jsonData) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            Cars car = objectMapper.readValue(jsonData, Cars.class);
+            return carsRepo.save(car);
+        } catch (JsonProcessingException e) {
+            // Handle the exception
+            e.printStackTrace();
+            return null;
+        }
     }
 }

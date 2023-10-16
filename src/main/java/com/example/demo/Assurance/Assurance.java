@@ -3,7 +3,7 @@ package com.example.demo.Assurance;
 import jakarta.persistence.*;
 
 import java.util.Date;
-
+@Embeddable
 @Entity
 @Table
 public class Assurance {
@@ -20,6 +20,11 @@ public class Assurance {
     private long num_assurace;
     private Date end_assurance;
     public Assurance(){
+
+    }
+    public Assurance(Assurance a){
+        this.end_assurance=a.getEnd_assurance();
+        this.num_assurace=a.getNum_assurace();
 
     }
     public Assurance(long num_assurace,Date end_assurance){

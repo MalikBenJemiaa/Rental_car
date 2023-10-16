@@ -4,6 +4,8 @@ import com.example.demo.Assurance.Assurance;
 import com.example.demo.Tech_Fiche.Tech_Fiche;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table
 public class Cars {
@@ -23,13 +25,26 @@ public class Cars {
     private Integer stock;
     private Integer price_per_day;
     private String color;
-
+    @ElementCollection
+    private List<String> Photos;
     @OneToOne
     @JoinColumn(name = "num_assurance")
-
     private Assurance num_assurance;
     @ManyToOne
     private Tech_Fiche tech_fiche;
+
+    public List<String> getPhotos() {
+        return Photos;
+    }
+
+    public void setPhotos(List<String> photos) {
+        Photos = photos;
+    }
+
+    /* @OneToMany
+            private List<CarsPhoto> CarsPhoto;
+        */
+
     public Cars() {
 
     }
@@ -43,6 +58,17 @@ public class Cars {
         this.color=color;
         this.tech_fiche=tech_fiche;
 
+    }
+
+    public Cars(Long mat, String model, Integer stock, Integer price_per_day, String color, List<String> photos, Assurance num_assurance, Tech_Fiche tech_fiche) {
+        this.mat = mat;
+        this.model = model;
+        this.stock = stock;
+        this.price_per_day = price_per_day;
+        this.color = color;
+        Photos = photos;
+        this.num_assurance = num_assurance;
+        this.tech_fiche = tech_fiche;
     }
 
     public void setTech_fiche(Tech_Fiche tech_fiche) {
@@ -72,6 +98,10 @@ public class Cars {
     public String getModel() {
         return model;
     }
+
+    /*public List<com.example.demo.CarsPhoto.CarsPhoto> getCarsPhoto() {
+        return CarsPhoto;
+    }*/
 
     public void setModel(String model) {
         this.model = model;

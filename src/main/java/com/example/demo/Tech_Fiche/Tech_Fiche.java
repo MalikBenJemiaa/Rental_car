@@ -4,6 +4,7 @@ import com.example.demo.cars.Cars;
 import jakarta.persistence.*;
 
 import java.util.Date;
+@Embeddable
 
 @Entity
 @Table
@@ -26,6 +27,15 @@ public class Tech_Fiche {
     private String description;
 
     public Tech_Fiche(){
+
+    }
+    public Tech_Fiche(Tech_Fiche t){
+        this.id=t.getId();
+        this.option=t.getOption();
+        this.description=t.getDescription();
+        this.marque=t.getMarque();
+        this.released_date=t.getReleased_date();
+        this.puissence=t.puissence;
 
     }
 

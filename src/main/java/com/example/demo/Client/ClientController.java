@@ -17,7 +17,7 @@ private final ClientService clientService;
     }
 
     /////////////////////////////////////////////////////:
-    @GetMapping("/GetAllClient")
+        @GetMapping("/GetAllClient")
     public List<Client> getAllClient() {
         return clientService.getAllClient();
     }

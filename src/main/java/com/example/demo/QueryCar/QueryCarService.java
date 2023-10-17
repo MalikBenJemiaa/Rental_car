@@ -46,7 +46,10 @@ public class QueryCarService {
         car.setColor(carr.getColor());
         car.setNum_assurance(assurance);
         car.setTech_fiche(techFicheee);
-        car.setPhotos(carr.getPhotos());
+        car.setPhoto1(carr.getPhoto1());
+        car.setPhoto2(carr.getPhoto2());
+        car.setPhoto3(carr.getPhoto3());
+        car.setPhoto4(carr.getPhoto4());
 // Set other properties of the car
 
         carsRepo.save(car);

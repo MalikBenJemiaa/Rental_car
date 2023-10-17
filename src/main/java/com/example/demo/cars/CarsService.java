@@ -37,7 +37,10 @@ public class CarsService {
             carsToUpdate.setColor(updatedCars.getColor());
             carsToUpdate.setModel(updatedCars.getModel());
             carsToUpdate.setStock(updatedCars.getStock());
-            carsToUpdate.setPhotos(updatedCars.getPhotos());
+            carsToUpdate.setPhoto1(updatedCars.getPhoto1());
+            carsToUpdate.setPhoto2(updatedCars.getPhoto2());
+            carsToUpdate.setPhoto3(updatedCars.getPhoto3());
+            carsToUpdate.setPhoto4(updatedCars.getPhoto4());
             carsToUpdate.setPrice_per_day(updatedCars.getPrice_per_day());
             // You can update other properties as needed
             return carsRepo.save(carsToUpdate);

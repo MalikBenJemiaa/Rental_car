@@ -25,7 +25,7 @@ public class QueryCarController {
     @PostMapping("/saveNewCar")
     public Cars saveNewCar(@RequestBody Cars car){
     //    return this.queryCarService.insertAllCridests(car);
-        List<byte[]> tab=new ArrayList<>();
+     /*   List<byte[]> tab=new ArrayList<>();
         try {
             for(int i=0;i<car.getPhotos().size();i++){
                 byte[] toConvert=car.getPhotos().get(i);
@@ -36,11 +36,12 @@ public class QueryCarController {
             }
             tab.add(baos.toByteArray());
             }
-            car.setPhotos(tab);
+            car.setPhotos(tab);*/
+        System.out.println("car object coming from frontend"+car);
             return this.queryCarService.insertAllCridests(car);
-        } catch (Exception e) {
+   /*     } catch (Exception e) {
             // Handle exceptions
             return new Cars();
-        }
+        }*/
     }
 }

@@ -25,22 +25,20 @@ public class Cars {
     private Integer stock;
     private Integer price_per_day;
     private String color;
-    @ElementCollection
 
-    @Lob
-    private List<byte[]> Photos;
+    private String Photos;
     @OneToOne
     @JoinColumn(name = "num_assurance")
     private Assurance num_assurance;
     @ManyToOne
     private Tech_Fiche tech_fiche;
 
-    public List<byte[]> getPhotos() {
+    public String getPhotos() {
 
         return Photos;
     }
 
-    public void setPhotos(List<byte[]> photos) {
+    public void setPhotos(String photos) {
         Photos = photos;
     }
 
@@ -63,13 +61,13 @@ public class Cars {
 
     }
 
-    public Cars(Long mat, String model, Integer stock, Integer price_per_day, String color, List<byte[]> photos, Assurance num_assurance, Tech_Fiche tech_fiche) {
+    public Cars(Long mat, String model, Integer stock, Integer price_per_day, String color, String photos, Assurance num_assurance, Tech_Fiche tech_fiche) {
         this.mat = mat;
         this.model = model;
         this.stock = stock;
         this.price_per_day = price_per_day;
         this.color = color;
-        Photos = photos;
+        this.Photos = photos;
         this.num_assurance = num_assurance;
         this.tech_fiche = tech_fiche;
     }

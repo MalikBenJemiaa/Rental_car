@@ -25,25 +25,50 @@ public class Cars {
     private Integer stock;
     private Integer price_per_day;
     private String color;
-    @ElementCollection
 
-    @Lob
-    private List<byte[]> Photos;
+    private String Photo1;
+    private String Photo2;
+    private String Photo3;
+    private String Photo4;
     @OneToOne
     @JoinColumn(name = "num_assurance")
     private Assurance num_assurance;
     @ManyToOne
     private Tech_Fiche tech_fiche;
 
-    public List<byte[]> getPhotos() {
+    public String getPhoto1() {
 
-        return Photos;
+        return Photo1;
     }
 
-    public void setPhotos(List<byte[]> photos) {
-        Photos = photos;
+    public void setPhoto1(String photo1) {
+        Photo1 = photo1;
+    }
+    public String getPhoto2() {
+
+        return Photo2;
     }
 
+    public void setPhoto2(String photo2) {
+        Photo2 = photo2;
+    }
+    public String getPhoto3() {
+
+        return Photo3;
+    }
+
+    public void setPhoto3(String photo3) {
+        Photo3 = photo3;
+    }
+
+    public String getPhoto4() {
+
+        return Photo4;
+    }
+
+    public void setPhoto4(String photo4) {
+        Photo4 = photo4;
+    }
     /* @OneToMany
             private List<CarsPhoto> CarsPhoto;
         */
@@ -63,13 +88,16 @@ public class Cars {
 
     }
 
-    public Cars(Long mat, String model, Integer stock, Integer price_per_day, String color, List<byte[]> photos, Assurance num_assurance, Tech_Fiche tech_fiche) {
+    public Cars(Long mat,String photo1,String photo2,String photo3,String photo4, String model, Integer stock, Integer price_per_day, String color, String photos, Assurance num_assurance, Tech_Fiche tech_fiche) {
         this.mat = mat;
         this.model = model;
         this.stock = stock;
         this.price_per_day = price_per_day;
         this.color = color;
-        Photos = photos;
+        this.Photo1 = photo1;
+        this.Photo2 = photo2;
+        this.Photo3 = photo3;
+        this.Photo4 = photo4;
         this.num_assurance = num_assurance;
         this.tech_fiche = tech_fiche;
     }

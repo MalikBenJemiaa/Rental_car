@@ -36,6 +36,8 @@ private final Tech_FicheRepo tech_FicheRepo;
             TechFicheToUpdate.setOption(tech_Fiche.getOption());
             TechFicheToUpdate.setPuissence(tech_Fiche.getPuissence());
             TechFicheToUpdate.setReleased_date(tech_Fiche.getReleased_date());
+            TechFicheToUpdate.setEnergie(tech_Fiche.getEnergie());
+            TechFicheToUpdate.setBoite(tech_Fiche.getBoite());
 
 
 

@@ -26,6 +26,10 @@ public class Tech_Fiche {
     private Date released_date;
     private String description;
 
+    private String energie;
+
+    private String boite;
+
     public Tech_Fiche(){
 
     }
@@ -36,10 +40,27 @@ public class Tech_Fiche {
         this.marque=t.getMarque();
         this.released_date=t.getReleased_date();
         this.puissence=t.puissence;
+        this.energie=t.getEnergie();
 
     }
 
-    public Tech_Fiche(long id,String marque, Integer puissence, String option, Date released_date, String description) {
+    public String getBoite() {
+        return boite;
+    }
+
+    public void setBoite(String boite) {
+        this.boite = boite;
+    }
+
+    public String getEnergie() {
+        return energie;
+    }
+
+    public void setEnergie(String energie) {
+        this.energie = energie;
+    }
+
+    public Tech_Fiche(long id, String marque, Integer puissence, String option, Date released_date, String description, String energie,String Boite) {
         this.id = id;
         this.marque = marque;
         this.puissence = puissence;
@@ -47,7 +68,8 @@ public class Tech_Fiche {
 
         this.released_date = released_date;
         this.description = description;
-
+        this.energie=energie;
+        this.boite=Boite;
     }
 
     public long getId() {

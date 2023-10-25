@@ -45,6 +45,17 @@ public class SecurityConfig {
             }
         };
     }
+   // @Bean
+//  /*  public CorsConfigurationSource corsConfigurationSource() {
+//        CorsConfiguration configuration = new CorsConfiguration();
+//        configuration.addAllowedOrigin("http://localhost:3000"); // Adjust this to match your React app's origin
+//        configuration.addAllowedMethod("*");
+//        configuration.addAllowedHeader("*");
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//        return source;
+//    }*/
 
     /*@Bean
     InMemoryUserDetailsManager users(){

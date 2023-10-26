@@ -33,6 +33,7 @@ public class Tech_Fiche {
     public Tech_Fiche(){
 
     }
+    //constructor that takes object techfiche is uptodate
     public Tech_Fiche(Tech_Fiche t){
         this.id=t.getId();
         this.option=t.getOption();
@@ -41,6 +42,7 @@ public class Tech_Fiche {
         this.released_date=t.getReleased_date();
         this.puissence=t.puissence;
         this.energie=t.getEnergie();
+        this.boite=t.getBoite();
 
     }
 

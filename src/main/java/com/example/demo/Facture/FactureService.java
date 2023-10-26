@@ -42,6 +42,10 @@ public class FactureService {
     public void deleteFacutre(Long id) {
         Frepo.deleteById(id);
     }
+    public void deleteMoreThenOneFacture(List<Long> tabOfIds){
+        System.out.println(tabOfIds);
+        this.Frepo.deleteByFactureIds(tabOfIds);
+    }
 }
 
 

@@ -2,13 +2,17 @@ package com.example.demo.Accounts;
 
 import com.example.demo.Contrat.Contrat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccountsService {
+public class AccountsService  {
     private final AccountsRepo accountsRepo;
     @Autowired
 
@@ -16,6 +20,8 @@ public class AccountsService {
         this.accountsRepo = accountsRepo;
     }
     /////////////////////////////////////
+
+
     public List<Accounts> getAllAccount() {
         return accountsRepo.findAll();
     }

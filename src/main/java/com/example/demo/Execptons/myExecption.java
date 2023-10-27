@@ -1,4 +1,4 @@
-package Execptons;
+package com.example.demo.Execptons;
 
 public class myExecption extends RuntimeException {
     private String errorCode;

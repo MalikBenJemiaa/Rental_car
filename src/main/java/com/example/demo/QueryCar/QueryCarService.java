@@ -1,6 +1,6 @@
 package com.example.demo.QueryCar;
 
-import Execptons.myExecption;
+import com.example.demo.Execptons.myExecption;
 import com.example.demo.Assurance.Assurance;
 import com.example.demo.Assurance.AssuranceRepo;
 import com.example.demo.Contrat.ContractRepo;

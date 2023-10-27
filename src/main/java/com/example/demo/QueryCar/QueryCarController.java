@@ -1,6 +1,6 @@
 package com.example.demo.QueryCar;
 
-import Execptons.myExecption;
+import com.example.demo.Execptons.myExecption;
 import com.example.demo.cars.Cars;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

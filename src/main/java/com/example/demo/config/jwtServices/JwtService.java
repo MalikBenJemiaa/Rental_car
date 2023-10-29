@@ -30,7 +30,8 @@ public class JwtService {
     }
 
     private boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
+                return extractExpiration(token).before(new Date());
+     /*   return extractExpiration(token).after(new Date());*/
     }
 
     private Date extractExpiration(String token) {
@@ -46,7 +47,8 @@ public class JwtService {
                 .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis()+90000*60*24*356))
+                /*.setExpiration(new Date(System.currentTimeMillis()+90000*60*24*356))*/
+                .setExpiration(new Date(System.currentTimeMillis() + 100 * 365 * 24 * 60 * 60 * 1000))
                 .signWith(getSignKey(), SignatureAlgorithm.HS256)
                 .compact();
 
@@ -56,7 +58,7 @@ public class JwtService {
         return Jwts.parserBuilder()
                 .setSigningKey(getSignKey())
                 .build()
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody();
     }
 public <T> T extractAllClaim(String token, Function<Claims,T> claimsResolver){

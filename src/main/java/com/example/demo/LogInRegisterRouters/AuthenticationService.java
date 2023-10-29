@@ -29,6 +29,9 @@ public class AuthenticationService {
                     .email(req.getEmail())
                     .role(Rola.ADMIN)
                     .build();
+        System.out.println(req.getUsername() +"\n");
+        System.out.println(req.getEmail() +"\n");
+
             accountsRepo.save(user);
             var jwtToken=jwtService.generateToken(user);
             return new AuthenticationResponse().builder().token(jwtToken).build();

@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AthenticationRequest {
-    private String  Username;
-    private String Email;
+    private String  username;
+    private String email;
 
 
-    private String  Password;
+    private String  password;
 
 }

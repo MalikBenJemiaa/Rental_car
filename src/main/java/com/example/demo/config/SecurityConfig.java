@@ -55,8 +55,14 @@ public class SecurityConfig {
                 csrf( csrf -> csrf.disable())
                 .authorizeRequests(authorize -> {
                     authorize
-                            .requestMatchers("/Athentication/**").permitAll()
-                            .anyRequest().authenticated();
+
+                            .requestMatchers("/secure/**").authenticated()
+                            .anyRequest().permitAll();
+
+                            /*.requestMatchers("/**").permitAll()*/
+
+                    /*.anyRequest().authenticated();*/
+
                 })
                 .sessionManagement(session -> {
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

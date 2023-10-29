@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,6 +31,8 @@ public class Accounts implements UserDetails {
             generator = "Accounts_sequence"
     )
     private long id;
+    @Column(unique = true, nullable = false) // Make the username field both unique and not null
+    @NotNull
     private String username;
     private String email;
     private String password;
@@ -53,7 +56,7 @@ public class Accounts implements UserDetails {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     @Override

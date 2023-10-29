@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Controller
 @RestController
-@RequestMapping("/Facutre")
+@RequestMapping("/secure/Facutre")
 public class FacutreController {
     private final FactureService fService;
     @Autowired

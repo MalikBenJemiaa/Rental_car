@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @RestController
 @Controller
-@RequestMapping("/location")
+@RequestMapping("/secure/location")
 public class LocationController {
     private final LocationService locationService;
     @Autowired

@@ -46,5 +46,8 @@ public class ContratService {
     public void deleteContrat(Long id) {
         contractRepo.deleteById(id);
     }
+    /*public List<Long> getFactureIds(List<Long> idsTab){
+        return this.contractRepo.findFactureIdsByLocationIds(idsTab);
+    }*/
 
 }

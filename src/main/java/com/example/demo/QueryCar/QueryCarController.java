@@ -1,17 +1,12 @@
 package com.example.demo.QueryCar;
 
+import com.example.demo.Execptons.myExecption;
 import com.example.demo.cars.Cars;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.GZIPOutputStream;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/QueryCars")
 @RestController
@@ -43,5 +38,19 @@ public class QueryCarController {
             // Handle exceptions
             return new Cars();
         }*/
+    }
+    @DeleteMapping("/deleteCarAndRelatedInfo/{idCar}")
+
+    public ResponseEntity<String> deleteCarAndAllRelatedInfo(@PathVariable Long idCar){
+                try {
+                    this.queryCarService.deleteTheCarAndTheRelatedInfo(idCar);
+
+                }catch (myExecption e){
+                     return ResponseEntity.status(HttpStatus.NOT_FOUND).body("we got an error the operation not affected");
+
+                }
+
+                return ResponseEntity.status(HttpStatus.OK).body("Operation affected with success");
+
     }
 }

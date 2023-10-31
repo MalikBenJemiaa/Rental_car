@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Client")
+@RequestMapping("/secure/Client")
 public class ClientController {
 private final ClientService clientService;
 @Autowired

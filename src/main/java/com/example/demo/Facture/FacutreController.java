@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Controller
 @RestController
-@RequestMapping("/Facutre")
+@RequestMapping("/secure/Facutre")
 public class FacutreController {
     private final FactureService fService;
     @Autowired
@@ -39,4 +39,10 @@ public class FacutreController {
     public void deleteFacture(@PathVariable Long itemId){
         this.fService.deleteFacutre(itemId);
     }
+    /*@DeleteMapping("/deleteMoreThenOneFacture")
+    public void deleteFacture(){
+        *//*List<Long> tabOfIds=*//*
+       this.fService.deleteMoreThenOneFacture(List.of(5l,7l,6l));
+    }*/
+
 }

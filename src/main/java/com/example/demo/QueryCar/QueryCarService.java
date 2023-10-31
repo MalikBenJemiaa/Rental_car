@@ -1,7 +1,11 @@
 package com.example.demo.QueryCar;
 
+import com.example.demo.Execptons.myExecption;
 import com.example.demo.Assurance.Assurance;
 import com.example.demo.Assurance.AssuranceRepo;
+import com.example.demo.Contrat.ContractRepo;
+import com.example.demo.Facture.FactureRepo;
+import com.example.demo.Location.LocationRepo;
 import com.example.demo.Tech_Fiche.Tech_Fiche;
 import com.example.demo.Tech_Fiche.Tech_FicheRepo;
 import com.example.demo.cars.Cars;
@@ -11,6 +15,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class QueryCarService {
    // @Autowired
@@ -18,13 +24,19 @@ public class QueryCarService {
     //@Autowired
     private final Tech_FicheRepo techFicheRepository;
     private final CarsRepo carsRepo;
+    private final ContractRepo contractRepo;
 
+    private final FactureRepo factureRepo;
+    private final LocationRepo locationRepo;
 
     @Autowired
-    public QueryCarService(AssuranceRepo ass,Tech_FicheRepo techFicheRepository,CarsRepo carsRepo){
+    public QueryCarService(LocationRepo locationRepo,FactureRepo factureRepo,ContractRepo contractRepo, AssuranceRepo ass,Tech_FicheRepo techFicheRepository,CarsRepo carsRepo){
         this.assuranceRepository=ass;
         this.techFicheRepository=techFicheRepository;
         this.carsRepo=carsRepo;
+        this.contractRepo=contractRepo;
+        this.factureRepo=factureRepo;
+        this.locationRepo=locationRepo;
 
 
     }
@@ -57,4 +69,33 @@ public class QueryCarService {
 
         return carr;
     }
+    @Transactional
+    public void deleteFactureFormTheLocationIds  (List<Long> locationId) throws myExecption{
+        List<Long> FactureIds = this.contractRepo.findFactureIdsByLocationIds(locationId);
+        /*System.out.println(FactureIds);*/
+
+        System.out.println(FactureIds);
+        this.contractRepo.deleteAllByLocationIds(locationId);
+        this.factureRepo.deleteByFactureIds(FactureIds);
+
+    }
+    @Transactional
+    public void deleteTheCarAndTheRelatedInfo  (Long idCar) throws myExecption{
+        System.out.println("lmssml");
+
+        List<Long> locationIds=this.locationRepo.findTheIdLocationByTheCarMat(idCar);
+        System.out.println(locationIds);
+        if (locationIds.size()==0){
+            /*this when the car has hot a related data*/
+            throw new myExecption("","this car not deserve this method to delete it");
+        }
+
+        this.deleteFactureFormTheLocationIds(locationIds)  ;
+        this.locationRepo.deleteAllTheLocationWithIdCar(idCar);
+        Long idAssurance =this.carsRepo.getAssuranceNum(idCar);
+        this.carsRepo.deleteById(idCar);
+        this.assuranceRepository.deleteById(idAssurance);
+    }
+
+
 }

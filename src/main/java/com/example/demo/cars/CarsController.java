@@ -43,6 +43,7 @@ public class CarsController {
     @DeleteMapping("/deleteCars/{id}")
     public void deleteCars(@PathVariable Long id) {
         carsService.deleteCars(id);
+        //deleted
     }
 
 }

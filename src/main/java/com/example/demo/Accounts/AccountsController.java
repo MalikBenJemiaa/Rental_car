@@ -25,19 +25,19 @@ public class AccountsController {
         return accountsService.getAccountById(id);
     }
 
-    @PostMapping("/CreateAccount")
+    /*@PostMapping("/CreateAccount")
     public Accounts createAccount(@RequestBody Accounts account) {
 
         System.out.println("update client is made succefully");
         return accountsService.createAccount(account);
-    }
+    }*/
 
     @PutMapping("/UpdateAccount/{id}")
     public Accounts updateAccount(@PathVariable Long id, @RequestBody Accounts updatedContrat) {
         return accountsService.updateAccount(id, updatedContrat);
     }
 
-    @DeleteMapping("DeleteAccount/{id}")
+    @DeleteMapping("/DeleteAccount/{id}")
     public void deleteAccount(@PathVariable Long id) {
         accountsService.deleteAccount(id);
     }

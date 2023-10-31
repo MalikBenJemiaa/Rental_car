@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Assurance")
+@RequestMapping("/")
 public class AssuranceController {
 private final AssuranceService assuranceService;
 
@@ -23,17 +23,17 @@ public AssuranceController(AssuranceService assuranceService) {
     public Optional<Assurance> getAssuranceById(@PathVariable Long id) {
         return assuranceService.getAssuranceById(id);
     }
-    @PostMapping("/CreateAssurance")
+    @PostMapping("/secure/CreateAssurance")
     public Assurance createAssurance(@RequestBody Assurance assurance) {
         return assuranceService.createAssurance(assurance);
     }
 
-    @PutMapping("/UpdateAssurance/{id}")
+    @PutMapping("/secure/UpdateAssurance/{id}")
     public Assurance updateAssurance(@PathVariable Long id, @RequestBody Assurance updatedAssurance) {
         return assuranceService.updateAssurance(id, updatedAssurance);
     }
 
-    @DeleteMapping("/DeleteAssurance/{id}")
+    @DeleteMapping("/secure/DeleteAssurance/{id}")
     public void deleteAssurance(@PathVariable Long id) {
         assuranceService.deleteAssurance(id);
     }

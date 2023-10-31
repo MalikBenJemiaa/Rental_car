@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/secure/Client")
+@RequestMapping("/")
 public class ClientController {
 private final ClientService clientService;
 @Autowired
@@ -17,7 +17,7 @@ private final ClientService clientService;
     }
 
     /////////////////////////////////////////////////////:
-        @GetMapping("/GetAllClient")
+        @GetMapping("/secure/admin/GetAllClient")
     public List<Client> getAllClient() {
         return clientService.getAllClient();
     }
@@ -26,7 +26,7 @@ private final ClientService clientService;
         return clientService.getClientById(id);
     }
 
-    @PostMapping("/CreateClient")
+    @PostMapping("/secure/admin/CreateClient")
     public Client createClient(@RequestBody Client client) {
 
         System.out.println("update client is made succefully");

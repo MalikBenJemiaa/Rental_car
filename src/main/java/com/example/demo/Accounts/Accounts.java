@@ -37,6 +37,8 @@ public class Accounts implements UserDetails {
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false) // Make the role field not null
+    @NotNull
     private Rola role;
     public Accounts() {
     }

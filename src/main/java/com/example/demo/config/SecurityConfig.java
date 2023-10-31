@@ -55,15 +55,26 @@ public class SecurityConfig {
                 csrf( csrf -> csrf.disable())
                 .authorizeRequests(authorize -> {
                     authorize
+                            /*.requestMatchers("/secure/**").authenticated()
+*/
+                            .requestMatchers("/secure/user/**").hasAuthority("USER")
+                            .requestMatchers("/secure/admin/**").hasAuthority("ADMIN")
 
+                            .anyRequest().permitAll();
+                })
+                /*.authorizeRequests(authorize -> {
+                    authorize
                             .requestMatchers("/secure/**").authenticated()
+                            .requestMatchers("/secure/user/**").hasRole("USER") // Allow only users with the "USER" role
+                            .requestMatchers("/secure/admin/**").hasRole("ADMIN")
+
                             .anyRequest().permitAll();
 
-                            /*.requestMatchers("/**").permitAll()*/
+                            *//*.requestMatchers("/**").permitAll()*//*
 
-                    /*.anyRequest().authenticated();*/
+                    *//*.anyRequest().authenticated();*//*
 
-                })
+                })*/
                 .sessionManagement(session -> {
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
                 })

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/secure/contract")
+@RequestMapping("/")
 public class ContratController {
     private ContratService contratService;
     @Autowired
@@ -17,28 +17,28 @@ public class ContratController {
         this.contratService = contratService;
     }
     /////////////////////////////////////////////////////:
-    @GetMapping("/GetAllContrat")
+    @GetMapping("/secure/admin/GetAllContrat")
     public List<Contrat> getAllContrat() {
         return contratService.getAllContrat();
     }
-    @GetMapping("/GetOneContrat/{id}")
+    @GetMapping("/secure/admin/GetOneContrat/{id}")
     public Optional<Contrat> getContratById(@PathVariable Long id) {
         return contratService.getContratById(id);
     }
 
-    @PostMapping("/CreateContrat")
+    @PostMapping("/secure/admin/CreateContrat")
     public Contrat createContrat(@RequestBody Contrat contrat) {
 
         System.out.println("update client is made succefully");
         return contratService.createContrat(contrat);
     }
 
-    @PutMapping("/UpdateContrat/{id}")
+    @PutMapping("/secure/admin/UpdateContrat/{id}")
     public Contrat updateContrat(@PathVariable Long id, @RequestBody Contrat updatedContrat) {
         return contratService.updateContrat(id, updatedContrat);
     }
 
-    @DeleteMapping("DeleteContrat/{id}")
+    @DeleteMapping("/secure/admin/DeleteContrat/{id}")
     public void deleteContrat(@PathVariable Long id) {
         contratService.deleteContrat(id);
     }

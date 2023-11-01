@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-@RequestMapping("/tech_fiche")
+@RequestMapping("/")
 @RestController
 @Controller
 public class Tech_FicheController {
@@ -17,22 +17,22 @@ public class Tech_FicheController {
     public Tech_FicheController(Tech_FicheService techFicheService){
         this.techFicheService=techFicheService;
     }
-    @GetMapping("/getAllTechFiche")
+    @GetMapping("/secure/admin/getAllTechFiche")
     public List<Tech_Fiche> getallficheTech(){
         System.out.println("slslsmmmmm");
         return this.techFicheService.getAllTechFiche();
     }
 
-        @DeleteMapping("/deleteTechFiche/{itemId}")
+        @DeleteMapping("/secure/admin/deleteTechFiche/{itemId}")
         public void deleteTechFiche(@PathVariable Long itemId){
             this.techFicheService.deleteTechFiche(itemId);
         }
-    @PutMapping("/updateTechFiche/{itemId}")
+    @PutMapping("/secure/admin/updateTechFiche/{itemId}")
     public Tech_Fiche updateTechFiche( @PathVariable Long itemId,@RequestBody Tech_Fiche t){
             return  this.techFicheService.updateTechFiche(itemId,t);
 
     }
-    @PostMapping("/insertTechFiche")
+    @PostMapping("/secure/admin/insertTechFiche")
     public Tech_Fiche insertTchFiche(@RequestBody Tech_Fiche t){
         /*Tech_Fiche t=new Tech_Fiche(1l,"bmw",12,"full option",new Date(1234567890000L),"a great car");
         */

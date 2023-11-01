@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/QueryCars")
+@RequestMapping("/")
 @RestController
 @Controller
 public class QueryCarController {
@@ -39,7 +39,7 @@ public class QueryCarController {
             return new Cars();
         }*/
     }
-    @DeleteMapping("/deleteCarAndRelatedInfo/{idCar}")
+    @DeleteMapping("/secure/admin/deleteCarAndRelatedInfo/{idCar}")
 
     public ResponseEntity<String> deleteCarAndAllRelatedInfo(@PathVariable Long idCar){
                 try {

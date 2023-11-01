@@ -23,17 +23,17 @@ public AssuranceController(AssuranceService assuranceService) {
     public Optional<Assurance> getAssuranceById(@PathVariable Long id) {
         return assuranceService.getAssuranceById(id);
     }
-    @PostMapping("/secure/CreateAssurance")
+    @PostMapping("/secure/admin/CreateAssurance")
     public Assurance createAssurance(@RequestBody Assurance assurance) {
         return assuranceService.createAssurance(assurance);
     }
 
-    @PutMapping("/secure/UpdateAssurance/{id}")
+    @PutMapping("/secure/admin/UpdateAssurance/{id}")
     public Assurance updateAssurance(@PathVariable Long id, @RequestBody Assurance updatedAssurance) {
         return assuranceService.updateAssurance(id, updatedAssurance);
     }
 
-    @DeleteMapping("/secure/DeleteAssurance/{id}")
+    @DeleteMapping("/secure/admin/DeleteAssurance/{id}")
     public void deleteAssurance(@PathVariable Long id) {
         assuranceService.deleteAssurance(id);
     }

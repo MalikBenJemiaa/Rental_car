@@ -17,25 +17,25 @@ public class FacutreController {
         this.fService=fser;
     }
 
-    @GetMapping("/GetAllFacutres")
+    @GetMapping("/secure/admin/GetAllFacutres")
     public List<Facture> getAllFacture(){
         return this.fService.getAllFacture();
     }
-    @GetMapping("/getFactureBuId/{itemId}")
+    @GetMapping("/secure/admin/getFactureBuId/{itemId}")
     public Optional<Facture> getFactureById(@PathVariable Long itemId){
         return this.fService.getFactureById(itemId);
     }
-    @PostMapping("/registerNewFacute")
+    @PostMapping("/secure/admin/registerNewFacute")
     public Facture registerNewFacture(@RequestBody Facture f){
         System.out.println("lsmsml");
         return this.fService.createFacture(f);
 
     }
-    @PutMapping("/updateFacuture/{itemId}")
+    @PutMapping("/secure/admin/updateFacuture/{itemId}")
     public Facture updateFacutre(@PathVariable Long itemId,@RequestBody Facture f){
         return this.fService.updateFacture(itemId,f);
     }
-    @DeleteMapping("/deleteFacture/{itemId}")
+    @DeleteMapping("/secure/admin/deleteFacture/{itemId}")
     public void deleteFacture(@PathVariable Long itemId){
         this.fService.deleteFacutre(itemId);
     }

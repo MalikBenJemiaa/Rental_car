@@ -9,30 +9,30 @@ import java.util.Optional;
 
 @RestController
 @Controller
-@RequestMapping("/secure/location")
+@RequestMapping("/")
 public class LocationController {
     private final LocationService locationService;
     @Autowired
     public LocationController(LocationService locationService){
         this.locationService=locationService;
     }
-    @GetMapping("/getAllLocations")
+    @GetMapping("/secure/admin/getAllLocations")
     public List<Location> GetAllLocations(){
         return this.locationService.getAllLocation();
     }
-    @PostMapping("/registerNawLocation")
+    @PostMapping("/common/registerNewLocation")
     public Location registerNewLocation(@RequestBody Location l){
         return this.locationService.createLocation(l);
     }
-    @PutMapping("/updateLocation/{itemId}")
+    @PutMapping("/secure/admin/updateLocation/{itemId}")
     public Location UpdateLocation(@PathVariable Long itemId,@RequestBody Location l){
         return this.locationService.updateLocation(itemId,l);
     }
-    @DeleteMapping("deleteLocation/{itemId}")
+    @DeleteMapping("/secure/admin/deleteLocation/{itemId}")
     public void deleteLocation(@PathVariable Long itemId){
         this.locationService.deleteLocation(itemId);
     }
-    @GetMapping("getLoactionById/{itemId}")
+    @GetMapping("/secure/admin/getLoactionById/{itemId}")
     public Optional<Location> getLocationById(@PathVariable Long itemId){
         return this.locationService.getLocationById(itemId);
     }

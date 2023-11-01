@@ -59,7 +59,7 @@ public class SecurityConfig {
 */
                             .requestMatchers("/secure/user/**").hasAuthority("USER")
                             .requestMatchers("/secure/admin/**").hasAuthority("ADMIN")
-                            .requestMatchers("/common").authenticated()
+                            .requestMatchers("/common/**").hasAnyAuthority("ADMIN","USER")
                             .anyRequest().permitAll();
                 })
                 /*.authorizeRequests(authorize -> {

@@ -24,6 +24,15 @@ public class AccountsController {
     public Optional<Accounts> getAccountById(@PathVariable Long id) {
         return accountsService.getAccountById(id);
     }
+    @GetMapping("/secure/admin/GetAllAccountBlocked")
+    public Optional<List<Accounts>> endPoint(){
+    return this.accountsService.getAllAccountsBlokced();
+    }
+    @PutMapping("/secure/admin/AllowAdminToNavigate/{id}")
+    public void endPoint(@PathVariable Long id){
+        System.out.println(id);
+        this.accountsService.UpdateAccountBlockedToAllowWorkenAsAnAdmin(id);
+    }
 
     /*@PostMapping("/CreateAccount")
     public Accounts createAccount(@RequestBody Accounts account) {

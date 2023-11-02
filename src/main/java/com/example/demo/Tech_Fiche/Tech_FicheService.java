@@ -1,6 +1,7 @@
 package com.example.demo.Tech_Fiche;
 
 import com.example.demo.Assurance.Assurance;
+import com.example.demo.Assurance.AssuranceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import java.util.Optional;
 @Service
 public class Tech_FicheService {
 private final Tech_FicheRepo tech_FicheRepo;
+
 @Autowired
     public Tech_FicheService(Tech_FicheRepo teach_FicheRepo){
     this.tech_FicheRepo=teach_FicheRepo;

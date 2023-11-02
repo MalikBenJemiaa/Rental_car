@@ -29,6 +29,8 @@ public class QueryCarService {
     private final FactureRepo factureRepo;
     private final LocationRepo locationRepo;
 
+
+
     @Autowired
     public QueryCarService(LocationRepo locationRepo,FactureRepo factureRepo,ContractRepo contractRepo, AssuranceRepo ass,Tech_FicheRepo techFicheRepository,CarsRepo carsRepo){
         this.assuranceRepository=ass;

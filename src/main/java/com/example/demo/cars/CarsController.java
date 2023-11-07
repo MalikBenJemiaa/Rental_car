@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Cars")
+@RequestMapping("/")
 public class CarsController {
     private final CarsService carsService;
 
@@ -29,18 +29,18 @@ public class CarsController {
     public Optional<Cars> getCarsById(@PathVariable Long id) {
         return carsService.getCarsById(id);
     }
-    @PostMapping("/registerCar")
+    @PostMapping("/secure/admin/registerCar")
     public Cars createCars(@RequestBody Cars cars) {
         return carsService.createCars(cars);
     }
 
-    @PutMapping("/updateCars/{id}")
+    @PutMapping("/secure/admin/updateCars/{id}")
     public Cars updateCars(@PathVariable Long id, @RequestBody Cars updatedCars) {
         return carsService.updateCars(id, updatedCars);
     }
 
 
-    @DeleteMapping("/deleteCars/{id}")
+    @DeleteMapping("/secure/admin/deleteCars/{id}")
     public void deleteCars(@PathVariable Long id) {
         carsService.deleteCars(id);
         //deleted

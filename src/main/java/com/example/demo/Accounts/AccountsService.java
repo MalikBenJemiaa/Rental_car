@@ -50,5 +50,10 @@ public class AccountsService  {
     public void deleteAccount(Long id) {
         accountsRepo.deleteById(id);
     }
-
+    public Optional<List<Accounts>> getAllAccountsBlokced(){
+        return this.accountsRepo.findBlockedAccount();
+    }
+    public void UpdateAccountBlockedToAllowWorkenAsAnAdmin(Long id){
+         this.accountsRepo.UpdateWorkenToTure(id);
+    }
 }

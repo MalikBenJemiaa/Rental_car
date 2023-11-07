@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/secure/Client")
+@RequestMapping("/")
 public class ClientController {
 private final ClientService clientService;
 @Autowired
@@ -17,28 +17,28 @@ private final ClientService clientService;
     }
 
     /////////////////////////////////////////////////////:
-        @GetMapping("/GetAllClient")
+        @GetMapping("/secure/admin/GetAllClient")
     public List<Client> getAllClient() {
         return clientService.getAllClient();
     }
-    @GetMapping("/getOneClient/{id}")
+    @GetMapping("/secure/admin/getOneClient/{id}")
     public Optional<Client> getClientById(@PathVariable String id) {
         return clientService.getClientById(id);
     }
 
-    @PostMapping("/CreateClient")
+    @PostMapping("/secure/user/CreateClient")
     public Client createClient(@RequestBody Client client) {
 
         System.out.println("update client is made succefully");
         return clientService.createClient(client);
     }
-
-    @PutMapping("/UpdateClient/{id}")
+/*to make a change that can hundle the update with the username*/
+    @PutMapping("/common/UpdateClient/{id}")
     public Client updateClient(@PathVariable String id, @RequestBody Client updatedClient) {
         return clientService.updateClient(id, updatedClient);
     }
 
-    @DeleteMapping("/DeleteClient/{id}")
+    @DeleteMapping("/secure/admin/DeleteClient/{id}")
     public void deleteClient(@PathVariable String id) {
         clientService.deleteClient(id);
     }

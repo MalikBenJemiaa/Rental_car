@@ -1,5 +1,6 @@
 package com.example.demo.config.jwtServices;
 
+import com.example.demo.Accounts.roleEnum.Rola;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -60,6 +61,14 @@ public class JwtService {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
+    }
+    public Rola extractRoleFromToken(String token) {
+        Claims claims = extractAllClaims(token);
+        String roleString = claims.get("role", String.class);
+
+        // Convert the role string to the Role enum
+        Rola role = Rola.valueOf(roleString);
+        return role;
     }
 public <T> T extractAllClaim(String token, Function<Claims,T> claimsResolver){
         final Claims claims=extractAllClaims(token);

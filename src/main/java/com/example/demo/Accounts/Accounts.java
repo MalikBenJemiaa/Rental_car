@@ -37,7 +37,10 @@ public class Accounts implements UserDetails {
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false) // Make the role field not null
+    @NotNull
     private Rola role;
+    private Boolean worken;
     public Accounts() {
     }
     public Accounts(long id, String username, String email, String password) {

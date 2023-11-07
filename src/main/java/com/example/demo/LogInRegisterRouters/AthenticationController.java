@@ -3,6 +3,7 @@ package com.example.demo.LogInRegisterRouters;
 
 import com.example.demo.LogInRegisterRouters.AuthenticationSchemas.AthenticationRequest;
 import com.example.demo.LogInRegisterRouters.AuthenticationSchemas.AuthenticationResponse;
+import com.example.demo.LogInRegisterRouters.AuthenticationSchemas.LoginRequest;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class AthenticationController {
     }
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
-            @RequestBody AthenticationRequest req
+            @RequestBody LoginRequest req
     ){
         return ResponseEntity.ok(authenticationService.authenticate(req));
 

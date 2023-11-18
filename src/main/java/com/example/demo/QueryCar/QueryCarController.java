@@ -17,7 +17,7 @@ public class QueryCarController {
     public QueryCarController(QueryCarService a){
         this.queryCarService=a;
     }
-    @PostMapping("/saveNewCar")
+    @PostMapping("/secure/admin/saveNewCar")
     public Cars saveNewCar(@RequestBody Cars car){
     //    return this.queryCarService.insertAllCridests(car);
      /*   List<byte[]> tab=new ArrayList<>();
